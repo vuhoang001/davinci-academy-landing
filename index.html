@@ -1,286 +1,378 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Lớp vẽ Da Vinci Academy — xưởng vẽ & hội họa lấy cảm hứng từ thời Phục Hưng. Học ký họa, màu nước và sơn dầu trong những lớp nhỏ, thân thiện theo cách của các bậc thầy." />
-  <title>Lớp vẽ Da Vinci Academy — Học vẽ &amp; Hội họa</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Nunito+Sans:wght@400;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css" />
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="Lớp vẽ Da Vinci Academy | Thái Bình — học vẽ theo tinh thần bậc thầy Phục Hưng. Giảng viên Vinh & Mai Trọng Hùng. Ký họa, màu nước, sơn dầu." />
+<title>DA VINCI ACADEMY — Thái Bình</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Space+Mono:wght@400;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+<style>
+:root{
+  --bg:#0e0d0b;
+  --bg2:#15130f;
+  --card:#1a1712;
+  --ink:#ece7db;
+  --muted:#9d968a;
+  --line:rgba(236,231,219,.1);
+  --gold:#c9a24b;
+  --gold-soft:#e0c079;
+  --sanguine:#b0603f;
+  --display:"Space Grotesk",system-ui,sans-serif;
+  --mono:"Space Mono",monospace;
+  --body:"Inter",system-ui,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--body);color:var(--ink);background:var(--bg);line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+.wrap{width:min(1240px,92%);margin-inline:auto;position:relative;z-index:2}
+a{color:inherit;text-decoration:none}
+img{display:block;max-width:100%}
+h1,h2,h3{font-family:var(--display);font-weight:700;line-height:1.02;letter-spacing:-.02em}
+
+.glow{position:fixed;width:600px;height:600px;border-radius:50%;filter:blur(120px);background:radial-gradient(circle,rgba(201,162,75,.16),transparent 70%);top:-160px;right:-160px;z-index:0;pointer-events:none}
+.grain{position:fixed;inset:0;z-index:1;pointer-events:none;opacity:.04;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2'/%3E%3C/filter%3E%3Crect width='120' height='120' filter='url(%23n)'/%3E%3C/svg%3E")}
+
+.mono{font-family:var(--mono);font-size:.76rem;letter-spacing:.16em;text-transform:uppercase}
+.gold{color:var(--gold)}
+
+/* ===== Nav ===== */
+.nav{display:flex;align-items:center;justify-content:space-between;padding:1.3rem 0;position:sticky;top:0;background:rgba(14,13,11,.6);backdrop-filter:blur(14px);z-index:60;border-bottom:1px solid transparent;transition:border-color .3s}
+.nav.stuck{border-color:var(--line)}
+.brand{font-family:var(--display);font-weight:700;font-size:1.1rem;letter-spacing:.02em;display:flex;align-items:center;gap:.6rem}
+.brand .seal{width:32px;height:32px;border:1px solid var(--gold);border-radius:50%;display:grid;place-items:center;color:var(--gold);font-family:var(--display);font-size:.95rem}
+.nav-links{display:flex;align-items:center;gap:2rem;list-style:none}
+.nav-links a{font-size:.95rem;color:var(--muted);transition:color .2s}
+.nav-links a:hover{color:var(--ink)}
+.nav-cta{border:1px solid var(--gold);color:var(--gold)!important;padding:.55rem 1.2rem;border-radius:6px;font-weight:500;font-size:.9rem}
+.nav-cta:hover{background:var(--gold);color:#12100b!important}
+.burger{display:none;flex-direction:column;gap:5px;background:none;border:0;cursor:pointer}
+.burger span{width:26px;height:2px;background:var(--ink);border-radius:2px}
+
+/* ===== Hero ===== */
+.hero{padding:clamp(2.5rem,6vw,5rem) 0 clamp(2.5rem,4vw,4rem)}
+.hero .mono{color:var(--gold);margin-bottom:1.3rem;display:inline-flex;align-items:center;gap:.7rem}
+.hero .mono::before{content:"";width:40px;height:1px;background:var(--gold)}
+.hero h1{font-size:clamp(3rem,9.5vw,7.5rem);font-weight:700;letter-spacing:-.03em;text-transform:uppercase}
+.hero h1 em{font-style:italic;font-family:var(--display);color:var(--gold);font-weight:600}
+.hero-sub{display:flex;justify-content:space-between;align-items:flex-end;gap:2rem;flex-wrap:wrap;margin-top:1.6rem}
+.hero-sub p{max-width:42ch;color:var(--muted);font-size:1.12rem}
+.hero-actions{display:flex;gap:.8rem;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:.5rem;font-family:var(--display);font-weight:500;font-size:1rem;padding:.9rem 1.7rem;border-radius:8px;cursor:pointer;transition:transform .2s,background .2s,color .2s,border-color .2s;border:1px solid transparent}
+.btn-gold{background:var(--gold);color:#12100b}
+.btn-gold:hover{background:var(--gold-soft);transform:translateY(-3px)}
+.btn-ghost{border-color:var(--line);color:var(--ink);background:rgba(236,231,219,.03)}
+.btn-ghost:hover{border-color:var(--gold);color:var(--gold);transform:translateY(-3px)}
+
+.hero-visual{margin-top:clamp(2rem,4vw,3rem);display:grid;grid-template-columns:2fr 1fr;gap:1rem;height:clamp(340px,46vw,540px)}
+.ph{position:relative;overflow:hidden;border-radius:14px;border:1px solid var(--line);background:var(--card)}
+.ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:saturate(.92) contrast(1.02)}
+.ph .cap{position:absolute;left:0;right:0;bottom:0;padding:1rem 1.2rem;font-family:var(--mono);font-size:.68rem;letter-spacing:.06em;color:var(--ink);background:linear-gradient(transparent,rgba(10,9,7,.85));z-index:2}
+.hero-side{display:grid;grid-template-rows:1fr 1fr;gap:1rem}
+
+/* ===== Marquee ===== */
+.strip{border-block:1px solid var(--line);padding:1.1rem 0;overflow:hidden;white-space:nowrap;background:var(--bg2)}
+.strip .track{display:inline-flex;gap:2.5rem;font-family:var(--display);font-weight:600;font-size:1.5rem;text-transform:uppercase;color:var(--ink);animation:slide 24s linear infinite}
+.strip .track span{display:inline-flex;align-items:center;gap:2.5rem}
+.strip .track span::after{content:"✦";font-size:.75rem;color:var(--gold)}
+@keyframes slide{to{transform:translateX(-50%)}}
+
+/* ===== Section ===== */
+.sec{padding:clamp(3.5rem,7vw,7rem) 0}
+.eyebrow{font-family:var(--mono);font-size:.76rem;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);margin-bottom:1rem;display:block}
+.sec-title{font-size:clamp(2.1rem,5vw,3.8rem);font-weight:700;text-transform:uppercase}
+.sec-title em{font-style:italic;color:var(--gold);font-weight:600}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:clamp(2rem,5vw,5rem);align-items:center}
+
+/* about */
+.statement{font-family:var(--display);font-size:clamp(1.8rem,3.6vw,3rem);font-weight:600;line-height:1.15;max-width:16ch;text-transform:uppercase}
+.about-points{list-style:none;display:grid;gap:1rem;margin-top:.5rem}
+.about-points li{display:grid;grid-template-columns:auto 1fr;gap:1.1rem;align-items:start;padding:1.2rem 1.3rem;border:1px solid var(--line);border-radius:12px;background:var(--card);transition:border-color .25s,transform .25s}
+.about-points li:hover{transform:translateY(-4px);border-color:var(--gold)}
+.about-points .n{font-family:var(--mono);font-weight:700;font-size:1.05rem;color:var(--gold)}
+.about-points h3{font-size:1.15rem;margin-bottom:.2rem;text-transform:uppercase}
+.about-points p{color:var(--muted);font-size:.98rem}
+
+/* ===== Gallery ===== */
+.gallery-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem}
+.art{position:relative;border-radius:12px;overflow:hidden;border:1px solid var(--line);aspect-ratio:3/4;background:var(--card)}
+.art img{width:100%;height:100%;object-fit:cover;filter:saturate(.9) contrast(1.02);transition:transform .5s,filter .4s}
+.art:hover img{transform:scale(1.05);filter:saturate(1)}
+.art figcaption{position:absolute;left:0;right:0;bottom:0;padding:.9rem 1rem;font-family:var(--mono);font-size:.66rem;letter-spacing:.05em;color:var(--ink);background:linear-gradient(transparent,rgba(10,9,7,.88));opacity:0;transform:translateY(8px);transition:.3s}
+.art:hover figcaption{opacity:1;transform:none}
+
+/* ===== Classes ===== */
+.classes-head{display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:1rem;margin-bottom:2.5rem}
+.class-row{display:grid;grid-template-columns:80px 1.1fr 1.4fr 150px;gap:1.5rem;align-items:center;padding:2rem 1.2rem;border:1px solid var(--line);border-radius:14px;margin-bottom:1rem;background:var(--card);position:relative;overflow:hidden;transition:transform .25s,border-color .25s}
+.class-row::before{content:"";position:absolute;left:0;top:0;bottom:0;width:4px;background:var(--gold);opacity:.45;transition:opacity .25s,width .25s}
+.class-row:hover{transform:translateX(6px);border-color:var(--gold)}
+.class-row:hover::before{opacity:1;width:7px}
+.class-row .num{font-family:var(--display);font-size:1.9rem;font-weight:700;color:transparent;-webkit-text-stroke:1.3px var(--muted)}
+.class-row h3{font-size:clamp(1.4rem,2.6vw,2rem);text-transform:uppercase}
+.class-row .desc{color:var(--muted)}
+.class-row .info{text-align:right;font-family:var(--mono);font-size:.82rem}
+.class-row .info b{display:block;color:var(--ink);font-size:.98rem}
+.class-row .info span{color:var(--muted)}
+.class-row .arrow{font-family:var(--display);color:var(--gold);font-size:1.3rem;opacity:0;transition:opacity .25s,transform .25s}
+.class-row:hover .arrow{opacity:1;transform:translateX(4px)}
+
+/* ===== Numbers ===== */
+.numbers{border-block:1px solid var(--line);padding:clamp(2.2rem,5vw,3rem) 0;display:grid;grid-template-columns:repeat(4,1fr);gap:2rem}
+.numbers .stat b{font-family:var(--display);font-size:clamp(2.6rem,6vw,4rem);font-weight:700;display:block;line-height:.9;color:var(--gold)}
+.numbers .stat span{color:var(--muted);font-family:var(--mono);font-size:.78rem;letter-spacing:.05em}
+
+/* ===== Instructors ===== */
+.teachers{display:grid;grid-template-columns:1fr 1fr;gap:1.6rem}
+.teacher{border:1px solid var(--line);border-radius:16px;overflow:hidden;background:var(--card);transition:transform .25s,border-color .25s}
+.teacher:hover{transform:translateY(-6px);border-color:var(--gold)}
+.teacher .t-pic{aspect-ratio:16/10;position:relative;display:grid;place-items:center;background:radial-gradient(circle at 50% 40%,#241f17,#14110c)}
+.teacher .t-pic .big{font-family:var(--display);font-size:5rem;font-weight:700;color:var(--gold);opacity:.75}
+.teacher .t-pic .note{position:absolute;bottom:.8rem;left:1rem;font-family:var(--mono);font-size:.64rem;color:var(--muted)}
+.teacher .t-body{padding:1.5rem}
+.teacher h3{font-size:1.6rem;text-transform:uppercase;margin-bottom:.25rem}
+.teacher .t-role{font-family:var(--mono);font-size:.78rem;color:var(--gold);margin-bottom:.7rem;text-transform:uppercase}
+.teacher .t-desc{color:var(--muted);font-size:1rem}
+
+/* ===== CTA ===== */
+.cta{text-align:center;padding:clamp(4rem,8vw,7rem) 0}
+.cta h2{font-size:clamp(2.6rem,7vw,5.5rem);font-weight:700;text-transform:uppercase;line-height:.95}
+.cta p{color:var(--muted);font-size:1.12rem;margin:1.2rem auto 2rem;max-width:44ch}
+.socials{display:flex;justify-content:center;gap:.8rem;flex-wrap:wrap}
+.btn-fb{background:#1877f2;color:#fff}
+.btn-fb:hover{filter:brightness(1.1);transform:translateY(-3px)}
+.cta-meta{display:flex;justify-content:center;gap:.8rem;flex-wrap:wrap;margin-top:2.8rem}
+.cta-meta div{border:1px solid var(--line);border-radius:100px;padding:.55rem 1.3rem;font-family:var(--mono);font-size:.78rem;color:var(--muted)}
+.cta-meta b{color:var(--ink)}
+.cta-meta .todo{color:var(--sanguine)}
+
+/* ===== Footer ===== */
+.ftr{border-top:1px solid var(--line);padding:2.4rem 0;background:var(--bg2)}
+.ftr-in{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem}
+.ftr-nav{display:flex;gap:1.5rem;flex-wrap:wrap}
+.ftr-nav a{color:var(--muted);font-size:.92rem}
+.ftr-nav a:hover{color:var(--gold)}
+.ftr-copy{color:var(--muted);font-family:var(--mono);font-size:.72rem;letter-spacing:.05em;flex-basis:100%;padding-top:1.2rem;border-top:1px solid var(--line);margin-top:.5rem}
+
+.reveal{opacity:0;transform:translateY(22px);transition:opacity .7s,transform .7s}
+.reveal.in{opacity:1;transform:none}
+
+@media(max-width:860px){
+  .two{grid-template-columns:1fr}
+  .hero-visual{grid-template-columns:1fr;height:auto}
+  .hero-side{grid-template-rows:none;grid-template-columns:1fr 1fr}
+  .ph{height:200px}.hero-visual>.ph:first-child{height:300px}
+  .gallery-grid{grid-template-columns:1fr 1fr}
+  .class-row{grid-template-columns:60px 1fr;gap:.5rem 1rem}
+  .class-row .desc,.class-row .info{grid-column:2;text-align:left}
+  .numbers{grid-template-columns:1fr 1fr}
+  .teachers{grid-template-columns:1fr}
+}
+@media(max-width:600px){
+  .nav-links{position:absolute;top:100%;left:0;right:0;flex-direction:column;gap:0;background:var(--bg2);border-bottom:1px solid var(--line);max-height:0;overflow:hidden;transition:max-height .35s;padding:0 5%}
+  .nav-links.open{max-height:440px;padding:1rem 5%}
+  .nav-links li{width:100%;padding:.55rem 0}
+  .burger{display:flex}
+  .hero-side{grid-template-columns:1fr}
+  .numbers{grid-template-columns:1fr 1fr}
+}
+</style>
 </head>
-<body>
-  <!-- ===== Header ===== -->
-  <header class="site-header" id="top">
-    <nav class="nav container">
-      <a href="#top" class="brand">
-        <span class="brand-mark">✎</span>
-        Da&nbsp;Vinci&nbsp;Academy
-      </a>
-      <button class="nav-toggle" aria-label="Mở menu" aria-expanded="false">
-        <span></span><span></span><span></span>
-      </button>
-      <ul class="nav-links">
-        <li><a href="#about">Giới thiệu</a></li>
-        <li><a href="#classes">Lớp học</a></li>
-        <li><a href="#instructor">Giảng viên</a></li>
-        <li><a href="#gallery">Tác phẩm</a></li>
-        <li><a href="#voices">Cảm nhận</a></li>
-        <li><a href="#visit" class="nav-cta">Ghé thăm</a></li>
-      </ul>
-    </nav>
+<body id="top">
+<div class="glow"></div><div class="grain"></div>
+
+<div class="wrap">
+  <!-- Nav -->
+  <nav class="nav" id="nav">
+    <a href="#top" class="brand"><span class="seal">L</span>DA VINCI ACADEMY</a>
+    <button class="burger" aria-label="Mở menu"><span></span><span></span><span></span></button>
+    <ul class="nav-links">
+      <li><a href="#about">Giới thiệu</a></li>
+      <li><a href="#gallery">Cảm hứng</a></li>
+      <li><a href="#classes">Lớp học</a></li>
+      <li><a href="#master">Giảng viên</a></li>
+      <li><a href="#enroll" class="nav-cta">Ghi danh</a></li>
+    </ul>
+  </nav>
+
+  <!-- Hero -->
+  <header class="hero">
+    <span class="mono reveal">Lớp vẽ · Thái Bình</span>
+    <h1 class="reveal">Học vẽ theo<br /><em>bậc thầy</em></h1>
+    <div class="hero-sub reveal">
+      <p>Lớp nhỏ, giảng viên tận tâm, học theo tinh thần Leonardo — quan sát trước, kỹ thuật theo sau. Từ nét chì đầu tiên đến bức tranh đầu tay.</p>
+      <div class="hero-actions">
+        <a href="#classes" class="btn btn-gold">Xem lớp học →</a>
+        <a href="#enroll" class="btn btn-ghost">Ghi danh</a>
+      </div>
+    </div>
+
+    <div class="hero-visual reveal">
+      <div class="ph"><img src="assets/vitruvian.jpg" alt="Người Vitruvius - Leonardo da Vinci" loading="lazy" /><span class="cap">Người Vitruvius · Leonardo da Vinci, k.1490</span></div>
+      <div class="hero-side">
+        <div class="ph"><img src="assets/mona-lisa.jpg" alt="Mona Lisa - Leonardo da Vinci" loading="lazy" /><span class="cap">Mona Lisa</span></div>
+        <div class="ph"><img src="assets/self-portrait.jpg" alt="Chân dung tự họa - Leonardo da Vinci" loading="lazy" /><span class="cap">Chân dung tự họa</span></div>
+      </div>
+    </div>
   </header>
+</div>
 
-  <!-- ===== Hero ===== -->
-  <section class="hero">
-    <div class="container hero-inner">
-      <div class="hero-copy reveal">
-        <p class="eyebrow">Xưởng vẽ &amp; Hội họa phong cách Phục Hưng</p>
-        <h1>Học như bậc thầy,<br /><em>vẽ theo cách của bạn.</em></h1>
-        <p class="lede">
-          Một xưởng vẽ lấy cảm hứng từ Leonardo da Vinci — nơi sự quan sát được đặt lên
-          hàng đầu, kỹ thuật theo sau. Từ nét chì đầu tiên đến bức tranh hoàn chỉnh đầu
-          tiên, chúng tôi đồng hành cùng bạn trong từng nét cọ.
-        </p>
-        <div class="hero-actions">
-          <a href="#classes" class="btn btn-primary">Khám phá các lớp học</a>
-          <a href="#gallery" class="btn btn-ghost">Xem tác phẩm học viên</a>
-        </div>
-        <ul class="hero-stats">
-          <li><strong>8</strong><span>học viên mỗi lớp</span></li>
-          <li><strong>3</strong><span>bộ môn giảng dạy</span></li>
-          <li><strong>12+</strong><span>năm kinh nghiệm</span></li>
-        </ul>
-      </div>
-      <div class="hero-art reveal">
-        <div class="frame frame-lg">
-          <div class="swatch s1"></div>
-          <div class="swatch s2"></div>
-          <div class="swatch s3"></div>
-          <div class="brush">🖌️</div>
-        </div>
-        <div class="frame frame-sm">
-          <div class="mini-sketch"></div>
-        </div>
-      </div>
+<!-- Marquee -->
+<div class="strip">
+  <div class="track">
+    <span>Hình họa</span><span>Màu nước</span><span>Sơn dầu</span><span>Ký họa</span><span>Giải phẫu</span><span>Phối cảnh</span>
+    <span>Hình họa</span><span>Màu nước</span><span>Sơn dầu</span><span>Ký họa</span><span>Giải phẫu</span><span>Phối cảnh</span>
+  </div>
+</div>
+
+<div class="wrap">
+  <!-- About -->
+  <section class="sec two" id="about">
+    <div class="reveal">
+      <span class="eyebrow">Vì sao chọn chúng tôi</span>
+      <p class="statement">Ai cũng <em>vẽ được</em> — chỉ cần bắt đầu.</p>
     </div>
-    <div class="hero-wave" aria-hidden="true"></div>
+    <ul class="about-points reveal">
+      <li><span class="n">01</span><div><h3>Lớp nhỏ</h3><p>Tối đa 8 giá vẽ mỗi buổi — được kèm sát, góp ý thẳng thắn.</p></div></li>
+      <li><span class="n">02</span><div><h3>Bắt đầu từ số 0</h3><p>Chưa cầm cọ bao giờ cũng không sao. Không cần năng khiếu, chỉ cần bắt đầu.</p></div></li>
+      <li><span class="n">03</span><div><h3>Đồ nghề có sẵn</h3><p>Giấy, màu, cọ và cả trà — chuẩn bị sẵn cho từng buổi học.</p></div></li>
+    </ul>
   </section>
+</div>
 
-  <!-- ===== About ===== -->
-  <section class="section about" id="about">
-    <div class="container about-grid">
-      <div class="reveal">
-        <p class="section-kicker">Triết lý của chúng tôi</p>
-        <h2 class="section-title">Học từ cuốn sổ tay của bậc thầy.</h2>
-        <p class="prose">
-          Lớp vẽ Da Vinci Academy là một góc yên tĩnh giữa lòng thành phố, nơi người mới
-          bắt đầu luôn được chào đón và sai lầm là một phần của niềm vui. Giống như Leonardo,
-          chúng tôi bắt đầu từ sự tò mò và quan sát kỹ lưỡng — bởi bất kỳ ai cũng có thể học
-          vẽ với sự kiên nhẫn, ánh sáng tốt và một chút động viên.
-        </p>
-        <p class="prose">
-          Các lớp học của chúng tôi cố tình giữ quy mô nhỏ. Với không quá tám giá vẽ trong
-          phòng, bạn nhận được sự quan tâm thật sự, những góp ý chân thành và đủ thời gian để
-          tìm ra phong cách của riêng mình.
-        </p>
-        <ul class="feature-list">
-          <li><span>◍</span> Cung cấp dụng cụ &amp; trà cho mỗi buổi học</li>
-          <li><span>◍</span> Chào đón cả những người hoàn toàn mới bắt đầu</li>
-          <li><span>◍</span> Ánh sáng tự nhiên hướng bắc suốt cả ngày</li>
-        </ul>
+<div class="wrap">
+  <!-- Gallery -->
+  <section class="sec" id="gallery">
+    <div class="classes-head reveal">
+      <div>
+        <span class="eyebrow">Nguồn cảm hứng</span>
+        <h2 class="sec-title">Từ cuốn codex của<br /><em>Leonardo</em></h2>
       </div>
-      <div class="about-cards reveal">
-        <article class="chip-card">
-          <div class="chip-icon">✏️</div>
-          <h3>Vẽ nền tảng cơ bản</h3>
-          <p>Đường nét, hình khối, sáng và tối — ngữ pháp của mọi tác phẩm bạn sẽ tạo ra.</p>
-        </article>
-        <article class="chip-card">
-          <div class="chip-icon">🎨</div>
-          <h3>Cảm nhận màu sắc sống động</h3>
-          <p>Tự pha bảng màu của riêng bạn và hiểu vì sao một số màu lại hòa quyện bên nhau.</p>
-        </article>
-        <article class="chip-card">
-          <div class="chip-icon">🖼️</div>
-          <h3>Hoàn thành tác phẩm thật</h3>
-          <p>Kết thúc mỗi khóa với những bức tranh đóng khung mà bạn thật sự tự hào treo lên.</p>
-        </article>
-      </div>
+      <p style="max-width:32ch;color:var(--muted)">Chúng tôi học theo tinh thần bậc thầy: quan sát, tò mò và kiên nhẫn.</p>
+    </div>
+    <div class="gallery-grid">
+      <figure class="art reveal"><img src="assets/vitruvian.jpg" alt="Người Vitruvius" loading="lazy" /><figcaption>Người Vitruvius · nghiên cứu tỉ lệ cơ thể</figcaption></figure>
+      <figure class="art reveal"><img src="assets/mona-lisa.jpg" alt="Mona Lisa" loading="lazy" /><figcaption>Mona Lisa · kỹ thuật sfumato</figcaption></figure>
+      <figure class="art reveal"><img src="assets/horse.jpg" alt="Ký họa ngựa" loading="lazy" /><figcaption>Ký họa ngựa · nghiên cứu chuyển động</figcaption></figure>
+      <figure class="art reveal"><img src="assets/self-portrait.jpg" alt="Chân dung tự họa" loading="lazy" /><figcaption>Chân dung tự họa · phấn đỏ sanguine</figcaption></figure>
     </div>
   </section>
+</div>
 
-  <!-- ===== Classes ===== -->
-  <section class="section classes" id="classes">
-    <div class="container">
-      <div class="section-head reveal">
-        <p class="section-kicker">Chúng tôi dạy gì</p>
-        <h2 class="section-title">Ba cách để bắt đầu hành trình của bạn</h2>
-        <p class="section-sub">Tham gia một lớp, hoặc học qua cả ba khi sự tự tin của bạn lớn dần.</p>
+<div class="wrap">
+  <!-- Classes -->
+  <section class="sec" id="classes">
+    <div class="classes-head reveal">
+      <div>
+        <span class="eyebrow">Lớp học</span>
+        <h2 class="sec-title">Ba khóa để <em>bắt đầu</em></h2>
       </div>
-      <div class="class-grid">
-        <article class="class-card reveal">
-          <div class="class-tag">Phù hợp người mới</div>
-          <h3>Nền tảng Hình họa</h3>
-          <p>Chì, than &amp; mực. Làm chủ tỉ lệ, phối cảnh và đánh bóng trước khi cầm đến cọ.</p>
-          <ul>
-            <li>Ký họa dáng &amp; đường viền</li>
-            <li>Sáng, tối &amp; khối</li>
-            <li>Cơ bản về tĩnh vật &amp; chân dung</li>
-          </ul>
-          <div class="class-meta"><span>🕑 6 tuần</span><span>Thứ 3 &amp; Thứ 5</span></div>
-        </article>
+      <p style="max-width:32ch;color:var(--muted)">Học một khóa, hoặc đi qua cả ba khi tay bạn vững dần.</p>
+    </div>
 
-        <article class="class-card featured reveal">
-          <div class="class-tag">Được yêu thích nhất</div>
-          <h3>Hành trình Màu nước</h3>
-          <p>Chất liệu trong trẻo và dễ tha thứ. Học cách để nước vẽ giúp bạn một nửa bức tranh.</p>
-          <ul>
-            <li>Loang màu, tạo bông &amp; vẽ ướt trên ướt</li>
-            <li>Hoa lá &amp; phong cảnh phóng khoáng</li>
-            <li>Tạo ánh sáng bằng cách chồng lớp</li>
-          </ul>
-          <div class="class-meta"><span>🕑 8 tuần</span><span>Sáng thứ 7</span></div>
-        </article>
+    <a class="class-row reveal" href="#enroll">
+      <span class="num">01</span>
+      <h3>Nền tảng Hình họa</h3>
+      <p class="desc">Chì, than &amp; mực. Làm chủ tỉ lệ, phối cảnh và sắc độ trước khi cầm cọ.</p>
+      <div class="info"><b>6 tuần</b><span>Thứ 3 &amp; 5</span></div>
+      <span class="arrow">→</span>
+    </a>
+    <a class="class-row reveal" href="#enroll">
+      <span class="num">02</span>
+      <h3>Hành trình Màu nước</h3>
+      <p class="desc">Chất liệu trong trẻo, giàu ánh sáng. Để nước vẽ giúp bạn một nửa bức tranh.</p>
+      <div class="info"><b>8 tuần</b><span>Sáng thứ 7</span></div>
+      <span class="arrow">→</span>
+    </a>
+    <a class="class-row reveal" href="#enroll">
+      <span class="num">03</span>
+      <h3>Xưởng Sơn dầu</h3>
+      <p class="desc">Đậm đà, giàu chất cảm. Dựng tranh từ lớp lót đến lớp phủ hoàn thiện.</p>
+      <div class="info"><b>10 tuần</b><span>Tối thứ 4</span></div>
+      <span class="arrow">→</span>
+    </a>
+  </section>
+</div>
 
-        <article class="class-card reveal">
-          <div class="class-tag">Nâng cao</div>
-          <h3>Xưởng Sơn dầu</h3>
-          <p>Đậm đà, vượt thời gian và giàu chất cảm. Dựng một bức tranh từ lớp lót đến lớp phủ hoàn thiện.</p>
-          <ul>
-            <li>Pha màu &amp; lý thuyết màu sắc</li>
-            <li>Kỹ thuật vẽ nhanh &amp; vẽ chồng lớp</li>
-            <li>Bức tranh cuối được hướng dẫn riêng</li>
-          </ul>
-          <div class="class-meta"><span>🕑 10 tuần</span><span>Tối thứ 4</span></div>
-        </article>
-      </div>
+<div class="wrap">
+  <!-- Numbers -->
+  <section class="reveal">
+    <div class="numbers">
+      <div class="stat"><b>8</b><span>học viên / lớp</span></div>
+      <div class="stat"><b>3</b><span>bộ môn</span></div>
+      <div class="stat"><b>500+</b><span>học viên đã học</span></div>
+      <div class="stat"><b>12+</b><span>năm kinh nghiệm</span></div>
     </div>
   </section>
 
-  <!-- ===== Instructor ===== -->
-  <section class="section instructor" id="instructor">
-    <div class="container instructor-grid">
-      <div class="instructor-portrait reveal">
-        <div class="portrait">
-          <span class="portrait-initial">M</span>
+  <!-- Instructors -->
+  <section class="sec" id="master">
+    <div class="classes-head reveal">
+      <div>
+        <span class="eyebrow">Giảng viên</span>
+        <h2 class="sec-title">Đội ngũ <em>giảng viên</em></h2>
+      </div>
+      <p style="max-width:34ch;color:var(--muted)">Hai người thầy trực tiếp cầm tay chỉ việc cho từng học viên.</p>
+    </div>
+    <div class="teachers">
+      <article class="teacher reveal">
+        <div class="t-pic"><span class="big">V</span><span class="note">// ảnh cập nhật sau</span></div>
+        <div class="t-body">
+          <h3>Vinh</h3>
+          <p class="t-role">Hình họa &amp; Sơn dầu</p>
+          <p class="t-desc">Đồng hành cùng người mới bắt đầu, kiên nhẫn hướng dẫn từ nét chì đầu tiên đến bức tranh hoàn chỉnh.</p>
         </div>
-        <div class="portrait-badge">✦ Người sáng lập &amp; Dẫn dắt</div>
-      </div>
-      <div class="reveal">
-        <p class="section-kicker">Gặp gỡ giảng viên</p>
-        <h2 class="section-title">Maya Trần</h2>
-        <p class="prose">
-          Maya đã dành hơn một thập kỷ giúp những người lần đầu còn e ngại nhận ra rằng họ
-          thật sự có thể vẽ. Được đào tạo về hình họa cổ điển và say mê màu nước, cô giảng
-          dạy theo cách mà cô từng ước mình được học — chậm rãi, ân cần và tràn đầy tiếng cười.
-        </p>
-        <p class="prose">
-          “Tôi không muốn biến bạn thành nghệ sĩ. Tôi chỉ muốn nhắc bạn rằng bạn vốn đã là một nghệ sĩ rồi.”
-        </p>
-        <ul class="feature-list two-col">
-          <li><span>◍</span> Đào tạo tại xưởng vẽ cổ điển</li>
-          <li><span>◍</span> Họa sĩ màu nước từng triển lãm</li>
-          <li><span>◍</span> Đã giảng dạy hơn 500 học viên</li>
-          <li><span>◍</span> Kiên nhẫn với người mới hoàn toàn</li>
-        </ul>
-      </div>
+      </article>
+      <article class="teacher reveal">
+        <div class="t-pic"><span class="big">H</span><span class="note">// ảnh cập nhật sau</span></div>
+        <div class="t-body">
+          <h3>Mai Trọng Hùng</h3>
+          <p class="t-role">Ký họa &amp; Màu nước</p>
+          <p class="t-desc">Say mê màu nước và ký họa, truyền cảm hứng để mỗi học viên tìm ra phong cách của riêng mình.</p>
+        </div>
+      </article>
     </div>
   </section>
 
-  <!-- ===== Gallery ===== -->
-  <section class="section gallery" id="gallery">
-    <div class="container">
-      <div class="section-head reveal">
-        <p class="section-kicker">Từ giá vẽ của chúng tôi</p>
-        <h2 class="section-title">Tác phẩm từ những người mới thực thụ</h2>
-        <p class="section-sub">Mỗi tác phẩm dưới đây đều bắt đầu từ một người từng nghĩ “mình chẳng biết vẽ gì cả.”</p>
-      </div>
-      <div class="gallery-grid">
-        <figure class="art-tile g1 reveal"><figcaption>Bến cảng buổi sáng · màu nước</figcaption></figure>
-        <figure class="art-tile g2 reveal"><figcaption>Tĩnh vật với những quả lê · sơn dầu</figcaption></figure>
-        <figure class="art-tile g3 reveal"><figcaption>Nghiên cứu bằng chì · chì graphite</figcaption></figure>
-        <figure class="art-tile g4 reveal"><figcaption>Hoa dại · màu nước</figcaption></figure>
-        <figure class="art-tile g5 reveal"><figcaption>Mái nhà buổi chiều · sơn dầu</figcaption></figure>
-        <figure class="art-tile g6 reveal"><figcaption>Chân dung tự họa · than chì</figcaption></figure>
-      </div>
+  <!-- CTA -->
+  <section class="cta reveal" id="enroll">
+    <span class="eyebrow" style="display:block">Ghi danh</span>
+    <h2>Bắt đầu vẽ<br /><em>ngay tuần này</em></h2>
+    <p>Ghé qua giờ mở xưởng, xem một buổi học và tự cảm nhận không khí — không cần cam kết gì cả.</p>
+    <div class="socials">
+      <a href="https://www.facebook.com/lopvedavinciacademy/" target="_blank" rel="noopener" class="btn btn-fb">Nhắn tin qua Facebook →</a>
+      <a href="mailto:hello@davinci-academy.art" class="btn btn-ghost">Gửi email</a>
+    </div>
+    <div class="cta-meta">
+      <div><b>Địa điểm:</b> TP. Thái Bình <span class="todo">(cập nhật địa chỉ)</span></div>
+      <div><b>FB:</b> <a href="https://www.facebook.com/lopvedavinciacademy/" target="_blank" rel="noopener" style="color:var(--gold)">Da Vinci Academy</a></div>
+      <div><b>Zalo/SĐT:</b> <span class="todo">(cập nhật)</span></div>
     </div>
   </section>
+</div>
 
-  <!-- ===== Testimonials ===== -->
-  <section class="section voices" id="voices">
-    <div class="container">
-      <div class="section-head reveal">
-        <p class="section-kicker">Cảm nhận học viên</p>
-        <h2 class="section-title">Cảm giác khi ở nơi đây</h2>
-      </div>
-      <div class="quote-grid">
-        <blockquote class="reveal">
-          <p>“Tôi đã không vẽ gì kể từ khi còn bé. Sáu tuần sau, tôi đóng khung bức tĩnh vật đầu tiên của mình. Tôi vẫn không tin nổi là mình đã làm được.”</p>
-          <footer>— Linh, quản lý bán lẻ</footer>
-        </blockquote>
-        <blockquote class="reveal">
-          <p>“Lớp học nhỏ và ấm áp. Maya để ý đến mọi thứ và không bao giờ khiến bạn thấy ngại khi đặt câu hỏi.”</p>
-          <footer>— David, kỹ sư phần mềm</footer>
-        </blockquote>
-        <blockquote class="reveal">
-          <p>“Những buổi sáng thứ Bảy học màu nước trở thành khoảng thời gian bình yên nhất trong tuần của tôi. Tôi mong chờ chúng suốt cả tuần.”</p>
-          <footer>— Priya, sinh viên</footer>
-        </blockquote>
-      </div>
-    </div>
-  </section>
+<!-- Footer -->
+<footer class="ftr">
+  <div class="wrap ftr-in">
+    <a href="#top" class="brand"><span class="seal">L</span>DA VINCI ACADEMY</a>
+    <nav class="ftr-nav">
+      <a href="#about">Giới thiệu</a><a href="#gallery">Cảm hứng</a><a href="#classes">Lớp học</a><a href="#master">Giảng viên</a><a href="https://www.facebook.com/lopvedavinciacademy/" target="_blank" rel="noopener">Facebook</a>
+    </nav>
+    <p class="ftr-copy">© <span id="year"></span> LỚP VẼ DA VINCI ACADEMY · THÁI BÌNH — Ảnh: Leonardo da Vinci (phạm vi công cộng)</p>
+  </div>
+</footer>
 
-  <!-- ===== Visit / Info CTA ===== -->
-  <section class="section visit" id="visit">
-    <div class="container visit-card reveal">
-      <div class="visit-copy">
-        <p class="section-kicker light">Ghé qua chào chúng tôi</p>
-        <h2 class="section-title">Ghé thăm xưởng vẽ, hoặc nhắn cho chúng tôi</h2>
-        <p class="prose">
-          Cách tốt nhất để biết một lớp học có phù hợp với bạn hay không là tận mắt nhìn thấy
-          không gian. Hãy ghé qua trong giờ mở xưởng, xem một buổi học và tự cảm nhận ánh sáng
-          — không cần cam kết gì cả.
-        </p>
-        <div class="visit-details">
-          <div><strong>Xưởng vẽ</strong><span>42 Willow Lane, Quận 3</span></div>
-          <div><strong>Giờ mở xưởng</strong><span>Thứ 6: 16–19h &amp; Thứ 7: 10–13h</span></div>
-          <div><strong>Email</strong><span>hello@davinci-academy.art</span></div>
-          <div><strong>Điện thoại / Zalo</strong><span>+84 000 000 000</span></div>
-        </div>
-        <div class="visit-actions">
-          <a href="mailto:hello@davinci-academy.art" class="btn btn-primary">Gửi email cho xưởng</a>
-          <a href="#classes" class="btn btn-ghost light">Xem lại các lớp học</a>
-        </div>
-      </div>
-      <div class="visit-note">
-        <div class="note-card">
-          <h3>Mới bắt đầu với hội họa?</h3>
-          <p>Tuyệt vời. Hầu hết học viên của chúng tôi chưa từng cầm cọ. Hãy bắt đầu với <em>Nền tảng Hình họa</em> và phát triển từ đó.</p>
-          <a href="#classes" class="note-link">Bắt đầu từ đâu →</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== Footer ===== -->
-  <footer class="site-footer">
-    <div class="container footer-inner">
-      <div class="footer-brand">
-        <span class="brand-mark">✎</span> Da&nbsp;Vinci&nbsp;Academy
-        <p>Xưởng vẽ &amp; hội họa lấy cảm hứng từ thời Phục Hưng.</p>
-      </div>
-      <nav class="footer-nav">
-        <a href="#about">Giới thiệu</a>
-        <a href="#classes">Lớp học</a>
-        <a href="#gallery">Tác phẩm</a>
-        <a href="#visit">Ghé thăm</a>
-      </nav>
-      <p class="footer-copy">© <span id="year"></span> Lớp vẽ Da Vinci Academy. Thực hiện với ánh sáng ấm áp.</p>
-    </div>
-  </footer>
-
-  <script src="script.js"></script>
+<script>
+  const burger=document.querySelector('.burger');
+  const links=document.querySelector('.nav-links');
+  burger.addEventListener('click',()=>links.classList.toggle('open'));
+  links.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>links.classList.remove('open')));
+  const nav=document.getElementById('nav');
+  window.addEventListener('scroll',()=>nav.classList.toggle('stuck',window.scrollY>10));
+  const io=new IntersectionObserver((es,o)=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');o.unobserve(e.target)}}),{threshold:.1,rootMargin:'0px 0px -40px 0px'});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+  document.getElementById('year').textContent=new Date().getFullYear();
+</script>
 </body>
 </html>
