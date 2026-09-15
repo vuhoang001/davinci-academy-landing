@@ -155,6 +155,44 @@ h1,h2,h3{font-family:var(--display);font-weight:700;line-height:1.02;letter-spac
 .ftr-nav a:hover{color:var(--gold)}
 .ftr-copy{color:var(--muted);font-family:var(--mono);font-size:.72rem;letter-spacing:.05em;flex-basis:100%;padding-top:1.2rem;border-top:1px solid var(--line);margin-top:.5rem}
 
+/* ===== Roadmap ===== */
+.roadmap{display:grid;grid-template-columns:1fr 1fr;gap:1.4rem}
+.track{border:1px solid var(--line);border-radius:14px;background:var(--card);padding:1.6rem 1.5rem;transition:border-color .25s,transform .25s}
+.track:hover{border-color:var(--gold);transform:translateY(-4px)}
+.track-head{display:flex;align-items:baseline;justify-content:space-between;gap:1rem;margin-bottom:1.1rem;padding-bottom:.9rem;border-bottom:1px solid var(--line)}
+.track-head h3{font-size:1.35rem;text-transform:uppercase}
+.track-head .tag{font-family:var(--mono);font-size:.68rem;letter-spacing:.12em;color:var(--gold);text-transform:uppercase;white-space:nowrap}
+.track ul{list-style:none;display:grid;gap:.75rem}
+.track li{display:grid;grid-template-columns:1fr auto;gap:1rem;align-items:baseline}
+.track li .s{color:var(--ink);font-size:.98rem}
+.track li .s small{display:block;color:var(--muted);font-size:.82rem;margin-top:.15rem;line-height:1.45}
+.track li .d{font-family:var(--mono);font-size:.78rem;color:var(--gold);white-space:nowrap;text-align:right}
+
+/* ===== Schedule & Tuition ===== */
+.sched-tuition{display:grid;grid-template-columns:1.25fr 1fr;gap:clamp(1.5rem,4vw,3rem);align-items:start}
+.sched{width:100%;border-collapse:collapse;font-size:.95rem}
+.sched th,.sched td{border:1px solid var(--line);padding:.7rem .5rem;text-align:center;vertical-align:middle}
+.sched th{font-family:var(--mono);font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:var(--gold)}
+.sched td.day{font-family:var(--display);font-weight:600;color:var(--ink)}
+.sched td.on{background:rgba(201,162,75,.12)}
+.sched td.on b{display:block;font-family:var(--display);font-size:.9rem;color:var(--ink)}
+.sched td.on span{font-size:.76rem;color:var(--muted)}
+.sched-times{margin-top:1.1rem;font-family:var(--mono);font-size:.78rem;color:var(--muted);display:flex;gap:1.4rem;flex-wrap:wrap}
+.sched-times b{color:var(--ink)}
+.tuition{border:1px solid var(--line);border-radius:14px;background:var(--card);padding:1.7rem 1.6rem}
+.tuition .price{font-family:var(--display);font-size:2.4rem;font-weight:700;color:var(--gold);line-height:1}
+.tuition .price small{display:block;font-family:var(--mono);font-size:.72rem;color:var(--muted);letter-spacing:.05em;margin-top:.4rem;text-transform:none}
+.tuition ul{list-style:none;display:grid;gap:.85rem;margin-top:1.4rem}
+.tuition li{display:grid;grid-template-columns:auto 1fr;gap:.6rem;color:var(--muted);font-size:.92rem;line-height:1.5}
+.tuition li::before{content:"—";color:var(--gold)}
+.tuition .bonus{margin-top:1.4rem;padding:.9rem 1rem;border:1px dashed var(--gold);border-radius:10px;color:var(--gold-soft);font-size:.9rem}
+.tuition .gvcn{margin-top:1.2rem;font-family:var(--mono);font-size:.8rem;color:var(--muted)}
+.tuition .gvcn b{color:var(--ink);display:block;font-size:.9rem}
+.tuition .gvcn a{color:var(--gold)}
+
+.teacher .t-contact{display:inline-flex;align-items:center;gap:.45rem;margin-top:.9rem;font-family:var(--mono);font-size:.85rem;color:var(--gold)}
+.teacher .t-contact:hover{color:var(--gold-soft)}
+
 .reveal{opacity:0;transform:translateY(22px);transition:opacity .7s,transform .7s}
 .reveal.in{opacity:1;transform:none}
 
@@ -168,6 +206,8 @@ h1,h2,h3{font-family:var(--display);font-weight:700;line-height:1.02;letter-spac
   .class-row .desc,.class-row .info{grid-column:2;text-align:left}
   .numbers{grid-template-columns:1fr 1fr}
   .teachers{grid-template-columns:1fr}
+  .roadmap{grid-template-columns:1fr}
+  .sched-tuition{grid-template-columns:1fr}
 }
 @media(max-width:600px){
   .nav-links{position:absolute;top:100%;left:0;right:0;flex-direction:column;gap:0;background:var(--bg2);border-bottom:1px solid var(--line);max-height:0;overflow:hidden;transition:max-height .35s;padding:0 5%}
@@ -189,8 +229,9 @@ h1,h2,h3{font-family:var(--display);font-weight:700;line-height:1.02;letter-spac
     <button class="burger" aria-label="Mở menu"><span></span><span></span><span></span></button>
     <ul class="nav-links">
       <li><a href="#about">Giới thiệu</a></li>
-      <li><a href="#gallery">Cảm hứng</a></li>
-      <li><a href="#classes">Lớp học</a></li>
+      <li><a href="#gallery">Tác phẩm</a></li>
+      <li><a href="#classes">Lộ trình</a></li>
+      <li><a href="#schedule">Lịch học</a></li>
       <li><a href="#master">Giảng viên</a></li>
       <li><a href="#enroll" class="nav-cta">Ghi danh</a></li>
     </ul>
@@ -221,8 +262,8 @@ h1,h2,h3{font-family:var(--display);font-weight:700;line-height:1.02;letter-spac
 <!-- Marquee -->
 <div class="strip">
   <div class="track">
-    <span>Hình họa</span><span>Màu nước</span><span>Sơn dầu</span><span>Ký họa</span><span>Giải phẫu</span><span>Phối cảnh</span>
-    <span>Hình họa</span><span>Màu nước</span><span>Sơn dầu</span><span>Ký họa</span><span>Giải phẫu</span><span>Phối cảnh</span>
+    <span>Ôn thi năng khiếu</span><span>Khối V</span><span>Khối H</span><span>Hình họa</span><span>Màu</span><span>Tượng</span><span>Tĩnh vật</span>
+    <span>Ôn thi năng khiếu</span><span>Khối V</span><span>Khối H</span><span>Hình họa</span><span>Màu</span><span>Tượng</span><span>Tĩnh vật</span>
   </div>
 </div>
 
@@ -262,37 +303,63 @@ h1,h2,h3{font-family:var(--display);font-weight:700;line-height:1.02;letter-spac
 </div>
 
 <div class="wrap">
-  <!-- Classes -->
+  <!-- Roadmap -->
   <section class="sec" id="classes">
     <div class="classes-head reveal">
       <div>
-        <span class="eyebrow">Lớp học</span>
-        <h2 class="sec-title">Ba khóa để <em>bắt đầu</em></h2>
+        <span class="eyebrow">Lộ trình ôn thi</span>
+        <h2 class="sec-title">Lộ trình <em>ôn thi</em></h2>
       </div>
-      <p style="max-width:32ch;color:var(--muted)">Học một khóa, hoặc đi qua cả ba khi tay bạn vững dần.</p>
+      <p style="max-width:34ch;color:var(--muted)">Lộ trình ôn tiêu chuẩn cho kỳ thi năng khiếu. Tiến độ có thể nhanh hoặc chậm tùy năng lực học viên và đánh giá của giáo viên.</p>
     </div>
 
-    <a class="class-row reveal" href="#enroll">
-      <span class="num">01</span>
-      <h3>Nền tảng Hình họa</h3>
-      <p class="desc">Chì, than &amp; mực. Làm chủ tỉ lệ, phối cảnh và sắc độ trước khi cầm cọ.</p>
-      <div class="info"><b>6 tuần</b><span>Thứ 3 &amp; 5</span></div>
-      <span class="arrow">→</span>
-    </a>
-    <a class="class-row reveal" href="#enroll">
-      <span class="num">02</span>
-      <h3>Hành trình Màu nước</h3>
-      <p class="desc">Chất liệu trong trẻo, giàu ánh sáng. Để nước vẽ giúp bạn một nửa bức tranh.</p>
-      <div class="info"><b>8 tuần</b><span>Sáng thứ 7</span></div>
-      <span class="arrow">→</span>
-    </a>
-    <a class="class-row reveal" href="#enroll">
-      <span class="num">03</span>
-      <h3>Xưởng Sơn dầu</h3>
-      <p class="desc">Đậm đà, giàu chất cảm. Dựng tranh từ lớp lót đến lớp phủ hoàn thiện.</p>
-      <div class="info"><b>10 tuần</b><span>Tối thứ 4</span></div>
-      <span class="arrow">→</span>
-    </a>
+    <div class="roadmap">
+      <article class="track reveal">
+        <div class="track-head"><h3>Hình họa</h3><span class="tag">Bộ môn</span></div>
+        <ul>
+          <li><span class="s">Luyện nét &amp; khối cơ bản</span><span class="d">2 tháng</span></li>
+          <li><span class="s">Vẽ mặt nạ các góc</span><span class="d">1 tháng</span></li>
+          <li><span class="s">Vẽ tĩnh vật</span><span class="d">2 tháng</span></li>
+          <li><span class="s">Vẽ tượng mảng các góc</span><span class="d">1 tháng</span></li>
+          <li><span class="s">Dựng hình tượng thi các góc</span><span class="d">1 tháng</span></li>
+        </ul>
+      </article>
+
+      <article class="track reveal">
+        <div class="track-head"><h3>Màu</h3><span class="tag">Bộ môn</span></div>
+        <ul>
+          <li><span class="s">Luyện kĩ năng cơ bản<small>Nghiền màu; tô, ke màu. Áp dụng vào thang sắc độ &amp; vòng tròn màu.</small></span><span class="d">2 tháng</span></li>
+          <li><span class="s">Luyện chép bố cục màu cơ bản</span><span class="d">2 tháng</span></li>
+          <li><span class="s">Nghĩ &amp; phối hòa sắc cơ bản (MTCN)<small>Dựa theo bài gốc hoàn chỉnh, gồm cả bố cục và màu.</small></span><span class="d">2 tháng</span></li>
+          <li><span class="s">Nghĩ &amp; phối hòa sắc nâng cao (MTCN)<small>Dựa theo bài gốc chỉ có bố cục, không có màu.</small></span><span class="d">1 tháng</span></li>
+          <li><span class="s">Nghĩ &amp; phối hòa sắc (KT)<small>Dựa theo bài gốc hoàn chỉnh, gồm cả bố cục và màu.</small></span><span class="d">2 tháng</span></li>
+          <li><span class="s">Bố cục &amp; nghĩ màu theo đề bài<small>Bắt đầu tự làm bài do mình nghĩ ra, gồm bố cục và màu.</small></span><span class="d">2 tháng</span></li>
+          <li><span class="s">Luyện đề thi các năm &amp; hoàn thiện kĩ năng nâng cao</span><span class="d">Đến khi thi</span></li>
+        </ul>
+      </article>
+
+      <article class="track reveal">
+        <div class="track-head"><h3>Khối V</h3><span class="tag">Chuyên sâu</span></div>
+        <ul>
+          <li><span class="s">Luyện phác khối</span><span class="d">3 tháng</span></li>
+          <li><span class="s">Luyện tĩnh vật, kí họa nâng cao</span><span class="d">3 tháng</span></li>
+          <li><span class="s">Đẩy sâu, hoàn thiện kĩ năng cơ bản</span><span class="d">4 tháng</span></li>
+          <li><span class="s">Nghiên cứu các kĩ năng nâng cao</span><span class="d">Đến khi thi</span></li>
+        </ul>
+      </article>
+
+      <article class="track reveal">
+        <div class="track-head"><h3>Khối H</h3><span class="tag">Chuyên sâu</span></div>
+        <ul>
+          <li><span class="s">Luyện chân dung cơ bản</span><span class="d">1 tháng</span></li>
+          <li><span class="s">Luyện các bộ phận cơ thể cơ bản</span><span class="d">3 tháng</span></li>
+          <li><span class="s">Dựng người cơ bản</span><span class="d">3 tuần</span></li>
+          <li><span class="s">Đánh khối tổng thể người</span><span class="d">1 tháng</span></li>
+          <li><span class="s">Đẩy sâu và hoàn thiện kĩ năng</span><span class="d">4 tháng</span></li>
+          <li><span class="s">Luyện tập &amp; nghiên cứu kĩ năng nâng cao</span><span class="d">Đến khi thi</span></li>
+        </ul>
+      </article>
+    </div>
   </section>
 </div>
 
@@ -301,9 +368,9 @@ h1,h2,h3{font-family:var(--display);font-weight:700;line-height:1.02;letter-spac
   <section class="reveal">
     <div class="numbers">
       <div class="stat"><b>8</b><span>học viên / lớp</span></div>
-      <div class="stat"><b>3</b><span>bộ môn</span></div>
-      <div class="stat"><b>500+</b><span>học viên đã học</span></div>
-      <div class="stat"><b>12+</b><span>năm kinh nghiệm</span></div>
+      <div class="stat"><b>4</b><span>lộ trình ôn thi</span></div>
+      <div class="stat"><b>900K</b><span>học phí / tháng</span></div>
+      <div class="stat"><b>300K</b><span>thưởng giới thiệu bạn</span></div>
     </div>
   </section>
 
@@ -320,9 +387,10 @@ h1,h2,h3{font-family:var(--display);font-weight:700;line-height:1.02;letter-spac
       <article class="teacher reveal">
         <div class="t-pic"><img src="assets/teacher-vinh.jpg" alt="Giảng viên Vinh — Da Vinci Academy" loading="lazy" /><span class="note">Thầy Vinh</span></div>
         <div class="t-body">
-          <h3>Vinh</h3>
-          <p class="t-role">Hình họa &amp; Sơn dầu</p>
+          <h3>Nguyễn Thế Vinh</h3>
+          <p class="t-role">Hình họa &amp; Sơn dầu · GVCN</p>
           <p class="t-desc">Đồng hành cùng người mới bắt đầu, kiên nhẫn hướng dẫn từ nét chì đầu tiên đến bức tranh hoàn chỉnh.</p>
+          <a class="t-contact" href="tel:0399824392">☎ 0399 824 392</a>
         </div>
       </article>
       <article class="teacher reveal">
@@ -331,8 +399,52 @@ h1,h2,h3{font-family:var(--display);font-weight:700;line-height:1.02;letter-spac
           <h3>Mai Trọng Hùng</h3>
           <p class="t-role">Ký họa &amp; Màu nước</p>
           <p class="t-desc">Say mê màu nước và ký họa, truyền cảm hứng để mỗi học viên tìm ra phong cách của riêng mình.</p>
+          <a class="t-contact" href="tel:0352571195">☎ 0352 571 195</a>
         </div>
       </article>
+    </div>
+  </section>
+
+  <!-- Schedule & Tuition -->
+  <section class="sec" id="schedule">
+    <div class="classes-head reveal">
+      <div>
+        <span class="eyebrow">Lịch học &amp; Học phí</span>
+        <h2 class="sec-title">Lịch học &amp; <em>học phí</em></h2>
+      </div>
+      <p style="max-width:32ch;color:var(--muted)">Lịch cố định hằng tuần theo từng bộ môn — chọn buổi phù hợp với bạn.</p>
+    </div>
+
+    <div class="sched-tuition">
+      <div class="reveal">
+        <table class="sched">
+          <thead>
+            <tr><th></th><th>Sáng</th><th>Chiều</th><th>Tối</th></tr>
+          </thead>
+          <tbody>
+            <tr><td class="day">Thứ 3</td><td>—</td><td>—</td><td class="on"><b>Tượng</b><span>Hình họa</span></td></tr>
+            <tr><td class="day">Thứ 5</td><td>—</td><td>—</td><td class="on"><b>Tượng</b><span>Hình họa</span></td></tr>
+            <tr><td class="day">Thứ 7</td><td>—</td><td class="on"><b>Tượng</b><span>Hình họa</span></td><td class="on"><b>Tượng</b><span>Hình họa</span></td></tr>
+            <tr><td class="day">Chủ nhật</td><td class="on"><b>Tượng</b><span>Màu</span></td><td class="on"><b>Tượng</b><span>Màu</span></td><td>—</td></tr>
+          </tbody>
+        </table>
+        <div class="sched-times">
+          <span><b>Sáng</b> 8h30 – 11h30</span><span><b>Chiều</b> 14h – 17h</span><span><b>Tối</b> 18h – 21h</span>
+        </div>
+      </div>
+
+      <div class="tuition reveal">
+        <div class="price">900.000đ<small>/ tháng — chưa bao gồm họa cụ</small></div>
+        <ul>
+          <li>Đóng học phí trước mùng 10 hằng tháng; quá hạn phụ thu 50.000đ mỗi ngày.</li>
+          <li>Đóng qua chuyển khoản hoặc tiền mặt cho giáo viên đứng lớp.</li>
+        </ul>
+        <div class="bonus">🎁 Giới thiệu bạn đến học — thưởng 300.000đ mỗi bạn.</div>
+        <div class="gvcn">
+          <b>GVCN: Nguyễn Thế Vinh</b>
+          SĐT / Zalo: <a href="tel:0399824392">0399 824 392</a>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -343,8 +455,8 @@ h1,h2,h3{font-family:var(--display);font-weight:700;line-height:1.02;letter-spac
     <p>Ghé qua giờ mở xưởng, xem một buổi học và tự cảm nhận không khí — không cần cam kết gì cả.</p>
     <div class="socials">
       <a href="https://www.facebook.com/lopvedavinciacademy/" target="_blank" rel="noopener" class="btn btn-fb">Nhắn tin qua Facebook →</a>
-      <a href="tel:0352571195" class="btn btn-gold">Gọi 0352 571 195</a>
-      <a href="https://zalo.me/0352571195" target="_blank" rel="noopener" class="btn btn-ghost">Nhắn Zalo</a>
+      <a href="tel:0399824392" class="btn btn-gold">Gọi 0399 824 392</a>
+      <a href="https://zalo.me/0399824392" target="_blank" rel="noopener" class="btn btn-ghost">Nhắn Zalo</a>
     </div>
     <div class="cta-meta">
       <div><b>Địa chỉ:</b> Ngõ 8, Hoàng Hoa Thám, Trần Hưng Đạo, Hưng Yên</div>
@@ -359,7 +471,7 @@ h1,h2,h3{font-family:var(--display);font-weight:700;line-height:1.02;letter-spac
   <div class="wrap ftr-in">
     <a href="#top" class="brand"><span class="seal">L</span>DA VINCI ACADEMY</a>
     <nav class="ftr-nav">
-      <a href="#about">Giới thiệu</a><a href="#gallery">Cảm hứng</a><a href="#classes">Lớp học</a><a href="#master">Giảng viên</a><a href="https://www.facebook.com/lopvedavinciacademy/" target="_blank" rel="noopener">Facebook</a>
+      <a href="#about">Giới thiệu</a><a href="#gallery">Tác phẩm</a><a href="#classes">Lộ trình</a><a href="#schedule">Lịch học</a><a href="#master">Giảng viên</a><a href="https://www.facebook.com/lopvedavinciacademy/" target="_blank" rel="noopener">Facebook</a>
     </nav>
     <p class="ftr-copy">© <span id="year"></span> LỚP VẼ DA VINCI ACADEMY · THÁI BÌNH — Ảnh: tác phẩm & lớp học của học viên</p>
   </div>

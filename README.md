@@ -14,8 +14,26 @@ hội họa (ký họa, màu nước, sơn dầu).
 | `assets/` | Ảnh thật (giảng viên, tác phẩm & lớp học) + ảnh Leonardo da Vinci gốc (public domain, Wikimedia Commons) |
 
 ## Giảng viên
-- **Vinh** — Hình họa & Sơn dầu
-- **Mai Trọng Hùng** — Ký họa & Màu nước
+- **Nguyễn Thế Vinh** (GVCN) — Hình họa & Sơn dầu — 0399 824 392
+- **Mai Trọng Hùng** — Ký họa & Màu nước — 0352 571 195
+
+## Lộ trình ôn thi
+Lộ trình ôn thi năng khiếu gồm 4 mảng: **Hình họa**, **Màu**, **Khối V**, **Khối H**
+(tiến độ tùy năng lực học viên & đánh giá của giáo viên).
+
+## Lịch học
+| | Sáng (8h30–11h30) | Chiều (14h–17h) | Tối (18h–21h) |
+|---|---|---|---|
+| Thứ 3 | | | Tượng — Hình họa |
+| Thứ 5 | | | Tượng — Hình họa |
+| Thứ 7 | | Tượng — Hình họa | Tượng — Hình họa |
+| Chủ nhật | Tượng — Màu | Tượng — Màu | |
+
+## Học phí
+- **900.000đ / tháng** (chưa gồm họa cụ)
+- Đóng trước mùng 10 hằng tháng; quá hạn phụ thu 50.000đ/ngày
+- Chuyển khoản hoặc tiền mặt cho giáo viên đứng lớp
+- Giới thiệu bạn: thưởng 300.000đ/bạn
 
 ## Chạy thử
 Chỉ cần mở `index.html` bằng trình duyệt — không cần cài đặt gì.
@@ -29,7 +47,8 @@ Chỉ cần mở `index.html` bằng trình duyệt — không cần cài đặt
 - [x] Địa chỉ chính xác
 - [x] Số điện thoại / Zalo
 - [ ] Email liên hệ
-- [ ] Học phí từng khóa & lịch khai giảng
+- [x] Học phí & lịch học
+- [ ] Số tài khoản (STK) chuyển khoản học phí
 - [x] Ảnh thật của lớp học và của hai giảng viên
 
 ---
