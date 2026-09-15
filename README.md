@@ -20,9 +20,14 @@ hội họa (ký họa, màu nước, sơn dầu).
 ## Chạy thử
 Chỉ cần mở `index.html` bằng trình duyệt — không cần cài đặt gì.
 
+## Liên hệ
+- **Địa chỉ:** Ngõ 8, Hoàng Hoa Thám, Trần Hưng Đạo, Hưng Yên, Việt Nam
+- **Điện thoại / Zalo:** 0352 571 195 · 0399 824 392
+- **Facebook:** https://www.facebook.com/lopvedavinciacademy/
+
 ## Cần cập nhật
-- [ ] Địa chỉ chính xác tại TP. Thái Bình
-- [ ] Số điện thoại / Zalo
+- [x] Địa chỉ chính xác
+- [x] Số điện thoại / Zalo
 - [ ] Email liên hệ
 - [ ] Học phí từng khóa & lịch khai giảng
 - [x] Ảnh thật của lớp học và của hai giảng viên
