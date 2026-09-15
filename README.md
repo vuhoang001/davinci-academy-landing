@@ -9,23 +9,23 @@ hội họa (ký họa, màu nước, sơn dầu).
 
 | File | Mô tả |
 |------|-------|
-| `davinci.html` | Giao diện chính — phong cách tối, tinh tế, chèn ảnh gốc của Leonardo da Vinci |
-| `index.html` + `styles.css` + `script.js` | Bản đầu (studio ấm áp, tông kem/đất) |
-| `assets/` | Ảnh của Leonardo da Vinci (phạm vi công cộng, nguồn Wikimedia Commons) |
+| `index.html` | Giao diện chính — phong cách tối, tinh tế, dùng ảnh thật của lớp học & hai giảng viên |
+| `studio.html` + `styles.css` + `script.js` | Bản đầu (studio ấm áp, tông kem/đất) |
+| `assets/` | Ảnh thật (giảng viên, tác phẩm & lớp học) + ảnh Leonardo da Vinci gốc (public domain, Wikimedia Commons) |
 
 ## Giảng viên
 - **Vinh** — Hình họa & Sơn dầu
 - **Mai Trọng Hùng** — Ký họa & Màu nước
 
 ## Chạy thử
-Chỉ cần mở `davinci.html` bằng trình duyệt — không cần cài đặt gì.
+Chỉ cần mở `index.html` bằng trình duyệt — không cần cài đặt gì.
 
 ## Cần cập nhật
 - [ ] Địa chỉ chính xác tại TP. Thái Bình
 - [ ] Số điện thoại / Zalo
 - [ ] Email liên hệ
 - [ ] Học phí từng khóa & lịch khai giảng
-- [ ] Ảnh thật của lớp học và của hai giảng viên
+- [x] Ảnh thật của lớp học và của hai giảng viên
 
 ---
-Ảnh minh họa: tác phẩm của Leonardo da Vinci (public domain).
+Ảnh: tác phẩm & lớp học của học viên Da Vinci Academy. Ảnh Leonardo da Vinci gốc (public domain) vẫn còn trong `assets/`.

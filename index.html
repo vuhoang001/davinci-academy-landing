@@ -127,9 +127,9 @@ h1,h2,h3{font-family:var(--display);font-weight:700;line-height:1.02;letter-spac
 .teachers{display:grid;grid-template-columns:1fr 1fr;gap:1.6rem}
 .teacher{border:1px solid var(--line);border-radius:16px;overflow:hidden;background:var(--card);transition:transform .25s,border-color .25s}
 .teacher:hover{transform:translateY(-6px);border-color:var(--gold)}
-.teacher .t-pic{aspect-ratio:16/10;position:relative;display:grid;place-items:center;background:radial-gradient(circle at 50% 40%,#241f17,#14110c)}
-.teacher .t-pic .big{font-family:var(--display);font-size:5rem;font-weight:700;color:var(--gold);opacity:.75}
-.teacher .t-pic .note{position:absolute;bottom:.8rem;left:1rem;font-family:var(--mono);font-size:.64rem;color:var(--muted)}
+.teacher .t-pic{aspect-ratio:16/10;position:relative;display:grid;place-items:center;background:radial-gradient(circle at 50% 40%,#241f17,#14110c);overflow:hidden}
+.teacher .t-pic img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 30%;filter:saturate(.95) contrast(1.02)}
+.teacher .t-pic .note{position:absolute;bottom:.8rem;left:1rem;font-family:var(--mono);font-size:.64rem;color:var(--ink);background:linear-gradient(transparent,rgba(10,9,7,.7));padding:.9rem .8rem .2rem;left:0;right:0;bottom:0}
 .teacher .t-body{padding:1.5rem}
 .teacher h3{font-size:1.6rem;text-transform:uppercase;margin-bottom:.25rem}
 .teacher .t-role{font-family:var(--mono);font-size:.78rem;color:var(--gold);margin-bottom:.7rem;text-transform:uppercase}
@@ -209,10 +209,10 @@ h1,h2,h3{font-family:var(--display);font-weight:700;line-height:1.02;letter-spac
     </div>
 
     <div class="hero-visual reveal">
-      <div class="ph"><img src="assets/vitruvian.jpg" alt="Người Vitruvius - Leonardo da Vinci" loading="lazy" /><span class="cap">Người Vitruvius · Leonardo da Vinci, k.1490</span></div>
+      <div class="ph"><img src="assets/work-bust.jpg" alt="Bài hình họa tượng chì than tại Da Vinci Academy" loading="lazy" /><span class="cap">Hình họa tượng · bài của học viên</span></div>
       <div class="hero-side">
-        <div class="ph"><img src="assets/mona-lisa.jpg" alt="Mona Lisa - Leonardo da Vinci" loading="lazy" /><span class="cap">Mona Lisa</span></div>
-        <div class="ph"><img src="assets/self-portrait.jpg" alt="Chân dung tự họa - Leonardo da Vinci" loading="lazy" /><span class="cap">Chân dung tự họa</span></div>
+        <div class="ph"><img src="assets/class-studio.jpg" alt="Không khí buổi học tại lớp vẽ Da Vinci Academy" loading="lazy" /><span class="cap">Một buổi học tại xưởng</span></div>
+        <div class="ph"><img src="assets/class-trio.jpg" alt="Học viên tập trung vẽ trong lớp" loading="lazy" /><span class="cap">Học viên trong giờ vẽ</span></div>
       </div>
     </div>
   </header>
@@ -246,17 +246,17 @@ h1,h2,h3{font-family:var(--display);font-weight:700;line-height:1.02;letter-spac
   <section class="sec" id="gallery">
     <div class="classes-head reveal">
       <div>
-        <span class="eyebrow">Nguồn cảm hứng</span>
-        <h2 class="sec-title">Từ cuốn codex của<br /><em>Leonardo</em></h2>
+        <span class="eyebrow">Tác phẩm &amp; lớp học</span>
+        <h2 class="sec-title">Nét vẽ từ<br /><em>lớp học</em></h2>
       </div>
-      <p style="max-width:32ch;color:var(--muted)">Chúng tôi học theo tinh thần bậc thầy: quan sát, tò mò và kiên nhẫn.</p>
+      <p style="max-width:32ch;color:var(--muted)">Bài vẽ thật của học viên và không khí mỗi buổi học tại xưởng.</p>
     </div>
     <div class="gallery-grid">
-      <figure class="art reveal"><img src="assets/vitruvian.jpg" alt="Người Vitruvius" loading="lazy" /><figcaption>Người Vitruvius · nghiên cứu tỉ lệ cơ thể</figcaption></figure>
-      <figure class="art reveal"><img src="assets/mona-lisa.jpg" alt="Mona Lisa" loading="lazy" /><figcaption>Mona Lisa · kỹ thuật sfumato</figcaption></figure>
-      <figure class="art reveal"><img src="assets/horse.jpg" alt="Ký họa ngựa" loading="lazy" /><figcaption>Ký họa ngựa · nghiên cứu chuyển động</figcaption></figure>
-      <figure class="art reveal"><img src="assets/hands.jpg" alt="Ký họa bàn tay" loading="lazy" /><figcaption>Ký họa bàn tay · nghiên cứu giải phẫu</figcaption></figure>
-      <figure class="art reveal"><img src="assets/self-portrait.jpg" alt="Chân dung tự họa" loading="lazy" /><figcaption>Chân dung tự họa · phấn đỏ sanguine</figcaption></figure>
+      <figure class="art reveal"><img src="assets/work-bust.jpg" alt="Bài hình họa tượng chì than" loading="lazy" /><figcaption>Hình họa tượng · bài chì than</figcaption></figure>
+      <figure class="art reveal"><img src="assets/work-stilllife.jpg" alt="Bài tĩnh vật ấm trà và hoa quả" loading="lazy" /><figcaption>Tĩnh vật · ấm trà &amp; hoa quả</figcaption></figure>
+      <figure class="art reveal"><img src="assets/class-study.jpg" alt="Học viên vẽ nghiên cứu khối cơ bản" loading="lazy" /><figcaption>Nghiên cứu khối · trứng &amp; hình cơ bản</figcaption></figure>
+      <figure class="art reveal"><img src="assets/class-studio.jpg" alt="Không khí lớp học buổi tối" loading="lazy" /><figcaption>Không khí lớp học buổi tối</figcaption></figure>
+      <figure class="art reveal"><img src="assets/class-trio.jpg" alt="Học viên tập trung vẽ trong giờ học" loading="lazy" /><figcaption>Giờ vẽ · học viên miệt mài</figcaption></figure>
     </div>
   </section>
 </div>
@@ -318,7 +318,7 @@ h1,h2,h3{font-family:var(--display);font-weight:700;line-height:1.02;letter-spac
     </div>
     <div class="teachers">
       <article class="teacher reveal">
-        <div class="t-pic"><span class="big">V</span><span class="note">// ảnh cập nhật sau</span></div>
+        <div class="t-pic"><img src="assets/teacher-vinh.jpg" alt="Giảng viên Vinh — Da Vinci Academy" loading="lazy" /><span class="note">Thầy Vinh</span></div>
         <div class="t-body">
           <h3>Vinh</h3>
           <p class="t-role">Hình họa &amp; Sơn dầu</p>
@@ -326,7 +326,7 @@ h1,h2,h3{font-family:var(--display);font-weight:700;line-height:1.02;letter-spac
         </div>
       </article>
       <article class="teacher reveal">
-        <div class="t-pic"><span class="big">H</span><span class="note">// ảnh cập nhật sau</span></div>
+        <div class="t-pic"><img src="assets/teacher-hung.jpg" alt="Giảng viên Mai Trọng Hùng — Da Vinci Academy" loading="lazy" /><span class="note">Thầy Mai Trọng Hùng</span></div>
         <div class="t-body">
           <h3>Mai Trọng Hùng</h3>
           <p class="t-role">Ký họa &amp; Màu nước</p>
@@ -360,7 +360,7 @@ h1,h2,h3{font-family:var(--display);font-weight:700;line-height:1.02;letter-spac
     <nav class="ftr-nav">
       <a href="#about">Giới thiệu</a><a href="#gallery">Cảm hứng</a><a href="#classes">Lớp học</a><a href="#master">Giảng viên</a><a href="https://www.facebook.com/lopvedavinciacademy/" target="_blank" rel="noopener">Facebook</a>
     </nav>
-    <p class="ftr-copy">© <span id="year"></span> LỚP VẼ DA VINCI ACADEMY · THÁI BÌNH — Ảnh: Leonardo da Vinci (phạm vi công cộng)</p>
+    <p class="ftr-copy">© <span id="year"></span> LỚP VẼ DA VINCI ACADEMY · THÁI BÌNH — Ảnh: tác phẩm & lớp học của học viên</p>
   </div>
 </footer>
 
