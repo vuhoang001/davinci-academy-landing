@@ -95,9 +95,16 @@ h1,h2,h3{font-family:var(--display);font-weight:700;line-height:1.02;letter-spac
 .about-points h3{font-size:1.15rem;margin-bottom:.2rem;text-transform:uppercase}
 .about-points p{color:var(--muted);font-size:.98rem}
 
-/* ===== Gallery ===== */
-.gallery-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:1rem}
-.art{position:relative;border-radius:12px;overflow:hidden;border:1px solid var(--line);aspect-ratio:3/4;background:var(--card)}
+/* ===== Gallery slider ===== */
+.gallery-slider{position:relative}
+.slider-track{display:flex;gap:1rem;overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;padding:.25rem .25rem 1rem;margin:0 -.25rem;-ms-overflow-style:none;scrollbar-width:none}
+.slider-track::-webkit-scrollbar{display:none}
+.art{flex:0 0 auto;width:clamp(190px,22vw,244px);scroll-snap-align:start;position:relative;border-radius:12px;overflow:hidden;border:1px solid var(--line);aspect-ratio:3/4;background:var(--card)}
+.slider-btn{position:absolute;top:calc(50% - .5rem);transform:translateY(-50%);z-index:5;width:46px;height:46px;border-radius:50%;border:1px solid var(--line);background:rgba(20,18,14,.82);backdrop-filter:blur(6px);color:var(--ink);font-family:var(--display);font-size:1.7rem;line-height:1;cursor:pointer;display:grid;place-items:center;transition:background .2s,border-color .2s,color .2s}
+.slider-btn:hover{border-color:var(--gold);color:var(--gold)}
+.slider-btn.prev{left:-12px}
+.slider-btn.next{right:-12px}
+@media(max-width:600px){.slider-btn{display:none}}
 .art img{width:100%;height:100%;object-fit:cover;filter:saturate(.9) contrast(1.02);transition:transform .5s,filter .4s}
 .art:hover img{transform:scale(1.05);filter:saturate(1)}
 .art figcaption{position:absolute;left:0;right:0;bottom:0;padding:.9rem 1rem;font-family:var(--mono);font-size:.66rem;letter-spacing:.05em;color:var(--ink);background:linear-gradient(transparent,rgba(10,9,7,.88));opacity:0;transform:translateY(8px);transition:.3s}
@@ -203,7 +210,6 @@ h1,h2,h3{font-family:var(--display);font-weight:700;line-height:1.02;letter-spac
   .hero-visual{grid-template-columns:1fr;height:auto}
   .hero-side{grid-template-rows:none;grid-template-columns:1fr 1fr}
   .ph{height:200px}.hero-visual>.ph:first-child{height:300px}
-  .gallery-grid{grid-template-columns:1fr 1fr}
   .class-row{grid-template-columns:60px 1fr;gap:.5rem 1rem}
   .class-row .desc,.class-row .info{grid-column:2;text-align:left}
   .numbers{grid-template-columns:1fr 1fr}
@@ -294,23 +300,27 @@ h1,h2,h3{font-family:var(--display);font-weight:700;line-height:1.02;letter-spac
       </div>
       <p style="max-width:32ch;color:var(--muted)">Bài vẽ thật của học viên và không khí mỗi buổi học tại xưởng.</p>
     </div>
-    <div class="gallery-grid">
-      <figure class="art reveal"><img src="assets/work-bust.jpg" alt="Bài hình họa tượng chì than" loading="lazy" /><figcaption>Hình họa tượng · bài chì than</figcaption></figure>
-      <figure class="art reveal"><img src="assets/work-stilllife.jpg" alt="Bài tĩnh vật ấm trà và hoa quả" loading="lazy" /><figcaption>Tĩnh vật · ấm trà &amp; hoa quả</figcaption></figure>
-      <figure class="art reveal"><img src="assets/class-study.jpg" alt="Học viên vẽ nghiên cứu khối cơ bản" loading="lazy" /><figcaption>Nghiên cứu khối · trứng &amp; hình cơ bản</figcaption></figure>
-      <figure class="art reveal"><img src="assets/class-studio.jpg" alt="Không khí lớp học buổi tối" loading="lazy" /><figcaption>Không khí lớp học buổi tối</figcaption></figure>
-      <figure class="art reveal"><img src="assets/class-trio.jpg" alt="Học viên tập trung vẽ trong giờ học" loading="lazy" /><figcaption>Giờ vẽ · học viên miệt mài</figcaption></figure>
-      <figure class="art reveal"><img src="assets/students/framed-bust-portrait.jpg" alt="Tượng Homer đóng khung" loading="lazy" /><figcaption>Tượng Homer · tác phẩm đóng khung</figcaption></figure>
-      <figure class="art reveal"><img src="assets/students/venus-bust.jpg" alt="Tượng nữ thần" loading="lazy" /><figcaption>Tượng nữ thần · nghiên cứu khối mặt</figcaption></figure>
-      <figure class="art reveal"><img src="assets/students/bull-skull.jpg" alt="Sọ bò và tĩnh vật" loading="lazy" /><figcaption>Sọ bò &amp; tĩnh vật · bố cục nâng cao</figcaption></figure>
-      <figure class="art reveal"><img src="assets/students/lion-sculpture.jpg" alt="Tượng sư tử" loading="lazy" /><figcaption>Tượng sư tử · tĩnh vật phức hợp</figcaption></figure>
-      <figure class="art reveal"><img src="assets/students/bust-portrait-hand.jpg" alt="Tượng bán thân" loading="lazy" /><figcaption>Tượng bán thân · dựng khối chân dung</figcaption></figure>
-      <figure class="art reveal"><img src="assets/students/still-life-apples.jpg" alt="Tĩnh vật táo và ly" loading="lazy" /><figcaption>Tĩnh vật táo &amp; ly · nghiên cứu ánh sáng</figcaption></figure>
-      <figure class="art reveal"><img src="assets/students/still-life-geometric.jpg" alt="Tĩnh vật hình khối" loading="lazy" /><figcaption>Tĩnh vật hình khối · luyện sắc độ</figcaption></figure>
-      <figure class="art reveal"><img src="assets/students/folk-gouache.jpg" alt="Tranh bột màu gói bánh chưng" loading="lazy" /><figcaption>Tranh bột màu · đề tài gói bánh chưng</figcaption></figure>
-      <figure class="art reveal"><img src="assets/students/portrait-bust-student.jpg" alt="Học viên và bài vẽ tượng" loading="lazy" /><figcaption>Học viên &amp; bài vẽ tượng chân dung</figcaption></figure>
-      <figure class="art reveal"><img src="assets/students/student-teapot.jpg" alt="Học viên vẽ ấm kim loại" loading="lazy" /><figcaption>Trong giờ học · vẽ ấm kim loại</figcaption></figure>
-      <figure class="art reveal"><img src="assets/students/student-drawing.jpg" alt="Học viên đang dựng hình" loading="lazy" /><figcaption>Trong giờ học · dựng hình tĩnh vật</figcaption></figure>
+    <div class="gallery-slider reveal">
+      <button class="slider-btn prev" type="button" aria-label="Xem ảnh trước">‹</button>
+      <div class="slider-track">
+      <figure class="art"><img src="assets/work-bust.jpg" alt="Bài hình họa tượng chì than" loading="lazy" /><figcaption>Hình họa tượng · bài chì than</figcaption></figure>
+      <figure class="art"><img src="assets/work-stilllife.jpg" alt="Bài tĩnh vật ấm trà và hoa quả" loading="lazy" /><figcaption>Tĩnh vật · ấm trà &amp; hoa quả</figcaption></figure>
+      <figure class="art"><img src="assets/class-study.jpg" alt="Học viên vẽ nghiên cứu khối cơ bản" loading="lazy" /><figcaption>Nghiên cứu khối · trứng &amp; hình cơ bản</figcaption></figure>
+      <figure class="art"><img src="assets/class-studio.jpg" alt="Không khí lớp học buổi tối" loading="lazy" /><figcaption>Không khí lớp học buổi tối</figcaption></figure>
+      <figure class="art"><img src="assets/class-trio.jpg" alt="Học viên tập trung vẽ trong giờ học" loading="lazy" /><figcaption>Giờ vẽ · học viên miệt mài</figcaption></figure>
+      <figure class="art"><img src="assets/students/framed-bust-portrait.jpg" alt="Tượng Homer đóng khung" loading="lazy" /><figcaption>Tượng Homer · tác phẩm đóng khung</figcaption></figure>
+      <figure class="art"><img src="assets/students/venus-bust.jpg" alt="Tượng nữ thần" loading="lazy" /><figcaption>Tượng nữ thần · nghiên cứu khối mặt</figcaption></figure>
+      <figure class="art"><img src="assets/students/bull-skull.jpg" alt="Sọ bò và tĩnh vật" loading="lazy" /><figcaption>Sọ bò &amp; tĩnh vật · bố cục nâng cao</figcaption></figure>
+      <figure class="art"><img src="assets/students/lion-sculpture.jpg" alt="Tượng sư tử" loading="lazy" /><figcaption>Tượng sư tử · tĩnh vật phức hợp</figcaption></figure>
+      <figure class="art"><img src="assets/students/bust-portrait-hand.jpg" alt="Tượng bán thân" loading="lazy" /><figcaption>Tượng bán thân · dựng khối chân dung</figcaption></figure>
+      <figure class="art"><img src="assets/students/still-life-apples.jpg" alt="Tĩnh vật táo và ly" loading="lazy" /><figcaption>Tĩnh vật táo &amp; ly · nghiên cứu ánh sáng</figcaption></figure>
+      <figure class="art"><img src="assets/students/still-life-geometric.jpg" alt="Tĩnh vật hình khối" loading="lazy" /><figcaption>Tĩnh vật hình khối · luyện sắc độ</figcaption></figure>
+      <figure class="art"><img src="assets/students/folk-gouache.jpg" alt="Tranh bột màu gói bánh chưng" loading="lazy" /><figcaption>Tranh bột màu · đề tài gói bánh chưng</figcaption></figure>
+      <figure class="art"><img src="assets/students/portrait-bust-student.jpg" alt="Học viên và bài vẽ tượng" loading="lazy" /><figcaption>Học viên &amp; bài vẽ tượng chân dung</figcaption></figure>
+      <figure class="art"><img src="assets/students/student-teapot.jpg" alt="Học viên vẽ ấm kim loại" loading="lazy" /><figcaption>Trong giờ học · vẽ ấm kim loại</figcaption></figure>
+      <figure class="art"><img src="assets/students/student-drawing.jpg" alt="Học viên đang dựng hình" loading="lazy" /><figcaption>Trong giờ học · dựng hình tĩnh vật</figcaption></figure>
+      </div>
+      <button class="slider-btn next" type="button" aria-label="Xem ảnh tiếp">›</button>
     </div>
   </section>
 </div>
@@ -501,6 +511,12 @@ h1,h2,h3{font-family:var(--display);font-weight:700;line-height:1.02;letter-spac
   window.addEventListener('scroll',()=>nav.classList.toggle('stuck',window.scrollY>10));
   const io=new IntersectionObserver((es,o)=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');o.unobserve(e.target)}}),{threshold:.1,rootMargin:'0px 0px -40px 0px'});
   document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+  document.querySelectorAll('.gallery-slider').forEach(s=>{
+    const track=s.querySelector('.slider-track');
+    const step=()=>Math.max(track.clientWidth*.8,260);
+    s.querySelector('.prev').addEventListener('click',()=>track.scrollBy({left:-step(),behavior:'smooth'}));
+    s.querySelector('.next').addEventListener('click',()=>track.scrollBy({left:step(),behavior:'smooth'}));
+  });
   document.getElementById('year').textContent=new Date().getFullYear();
 </script>
 </body>
